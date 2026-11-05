@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+backend/search_history.json
+backend/search_history.json.tmp
+.DS_Store

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7fb">
+    <meta name="description" content="A smart, context-aware autocomplete search experience.">
+    <title>Smart Search — Autocomplete Engine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/script.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Smart Search home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none">
+              <path d="M14.4 4.5a9.9 9.9 0 1 0 6.15 17.65l5.2 5.2 2.12-2.12-5.2-5.2A9.9 9.9 0 0 0 14.4 4.5Z" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="m10.5 15 2.6 2.6 5.4-5.6" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="brand-name">smart<span>search</span></span>
+        </a>
+        <span class="topbar-note"><span class="status-dot"></span> A little more in the know</span>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="page-title">
+          <div class="eyebrow"><span class="sparkle" aria-hidden="true">✦</span> YOUR NEXT GREAT SEARCH STARTS HERE</div>
+          <h1 id="page-title">Find what you mean,<br><span>before you finish typing.</span></h1>
+          <p class="hero-copy">Smart suggestions that learn from what you search.<br class="desktop-break"> Less typing, more finding.</p>
+
+          <div class="search-wrap">
+            <form class="search-form" id="search-form" role="search" autocomplete="off">
+              <svg class="search-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="1.8"/>
+                <path d="m16 16 4.2 4.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+              <label class="sr-only" for="search-input">Search anything</label>
+              <input id="search-input" name="q" type="search" placeholder="Try “how to learn Python”" maxlength="100" aria-autocomplete="list" aria-controls="suggestions" aria-expanded="false">
+              <button class="clear-input" id="clear-input" type="button" aria-label="Clear search" title="Clear search" hidden>×</button>
+              <button class="search-submit" type="submit">Search <span aria-hidden="true">↗</span></button>
+            </form>
+            <div class="suggestion-panel" id="suggestion-panel" hidden>
+              <ul id="suggestions" role="listbox" aria-label="Search suggestions"></ul>
+              <p class="suggestion-footer"><span class="sparkle" aria-hidden="true">✦</span> Suggestions adapt to your searches</p>
+            </div>
+          </div>
+          <p class="keyboard-hint">Press <kbd>↑</kbd> <kbd>↓</kbd> to explore <span>·</span> <kbd>↵</kbd> to search</p>
+        </section>
+
+        <section class="discovery-grid" aria-label="Search discovery">
+          <article class="content-card popular-card">
+            <div class="card-heading">
+              <div class="heading-icon popular-icon" aria-hidden="true">↗</div>
+              <div><h2>Popular right now</h2><p>What people are curious about</p></div>
+            </div>
+            <div class="chip-list" id="popular-searches" aria-live="polite">
+              <span class="loading-copy">Finding popular searches…</span>
+            </div>
+          </article>
+
+          <article class="content-card recent-card">
+            <div class="card-heading">
+              <div class="heading-icon recent-icon" aria-hidden="true">◷</div>
+              <div><h2>Your recent searches</h2><p>Pick up where you left off</p></div>
+              <button class="text-button" id="clear-history" type="button" hidden>Clear history</button>
+            </div>
+            <div class="recent-list" id="recent-searches" aria-live="polite">
+              <p class="empty-state">Your recent searches will show up here.</p>
+            </div>
+          </article>
+        </section>
+
+        <div class="notice" id="notice" role="status" aria-live="polite"></div>
+      </main>
+
+      <footer class="footer">
+        <span>Thoughtful search, one keystroke at a time.</span>
+        <span class="footer-credit"><span class="footer-sparkle">✳</span> Powered by a little intelligence</span>
+      </footer>
+    </div>
+  </body>
+</html>
